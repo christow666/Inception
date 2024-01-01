@@ -36,7 +36,8 @@ services:
     container_name: wordpress
     env_file: .env
     volumes:
-      - wordpress:/var/www/wordpress
+      # - wordpress:/var/www/wordpress
+      - /var/snap/docker/common/var-lib-docker/volumes/srcs_wordpress/_data
     networks:
       - inception
     build:
