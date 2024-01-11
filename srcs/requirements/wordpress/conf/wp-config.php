@@ -25,15 +25,6 @@ define('DB_COLLATE', '');
 define('WP_CACHE', true);
 define('WP_CACHE_KEY_SALT', 'bcaffere.42.fr');
 
-//** Try Redis container */
-define('WP_REDIS_HOST', 'redis');
-define('WP_REDIS_PORT', 6379);
-// define( 'WP_REDIS_PASSWORD', '$REDIS_PWD' );
-define('WP_REDIS_TIMEOUT', 1);
-define('WP_REDIS_READ_TIMEOUT', 1);
-define('WP_REDIS_DATABASE', 0);
-
-
 /** Authentication Unique Keys and Salts.
  * You can generate these using the {@link https://api.wordpress.org/secret-key/1.1/salt/ WordPress.org secret-key service}
  */

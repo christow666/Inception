@@ -12,3 +12,5 @@ COPY /tools/init.sql /docker-entrypoint-initdb.d/
 
 # Run the initialization script
 RUN chmod +x /docker-entrypoint-initdb.d/init.sql
+
+CMD ["mysqld_safe"]

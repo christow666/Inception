@@ -46,9 +46,11 @@ RUN apt install php-fpm php-mysql -y
 
 RUN apt install curl -y
 
+
 COPY ./tools/script.sh /
-# COPY ./tools/wp-config.php /
-COPY ./conf/wp-config.php /var/www/wordpress
+WORKDIR /var/www/html
+
+COPY ./conf/wp-config.php /var/www/html
 
 RUN chmod +x /script.sh
 
