@@ -11,3 +11,5 @@
 # Ignore environment configuration files
 .env
 .env.local
+
+/volume/

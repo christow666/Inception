@@ -50,7 +50,7 @@ RUN apt install curl -y
 COPY ./tools/script.sh /
 WORKDIR /var/www/html
 
-COPY ./conf/wp-config.php /var/www/html
+# COPY ./conf/wp-config.php /var/www/html
 
 RUN chmod +x /script.sh
 

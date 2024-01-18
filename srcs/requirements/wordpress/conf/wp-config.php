@@ -4,13 +4,13 @@
  */
 
 /** The name of the database for WordPress */
-define('DB_NAME', 'mydatabasecp');
+define('DB_NAME', 'cperron');
 
 /** MySQL database username */
-define('DB_USER', 'myusercp');
+define('DB_USER', 'cperron42');
 
 /** MySQL database password */
-define('DB_PASSWORD', 'mypasswordcp');
+define('DB_PASSWORD', 'cperron42pass');
 
 /** MySQL hostname */
 define('DB_HOST', 'mariadb');
@@ -23,7 +23,7 @@ define('DB_COLLATE', '');
 
 //** Redis cache settings. */
 define('WP_CACHE', true);
-define('WP_CACHE_KEY_SALT', 'bcaffere.42.fr');
+define('WP_CACHE_KEY_SALT', 'cperron.42.ca');
 
 /** Authentication Unique Keys and Salts.
  * You can generate these using the {@link https://api.wordpress.org/secret-key/1.1/salt/ WordPress.org secret-key service}
