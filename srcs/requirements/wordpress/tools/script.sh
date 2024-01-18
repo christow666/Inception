@@ -1,5 +1,5 @@
 #!/bin/bash
-sleep 69
+# sleep 69
 
 chown -R www-data /var/www/html
 chmod -R 775 /var/www/html

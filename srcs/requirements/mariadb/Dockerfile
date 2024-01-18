@@ -1,16 +1,17 @@
 FROM debian:buster
 RUN apt update -y \
-    && apt upgrade -y \
-    && apt-get install mariadb-server -y \
-	&& apt install vim -y \
-	&& apt install curl -y 
+    # && apt upgrade -y \
+    && apt-get install mariadb-server -y
+	# && apt install vim -y \
+	# && apt install curl -y 
 
-COPY conf/50-server.cnf	/etc/mysql/mariadb.conf.d/50-server.cnf
+COPY conf/50-server.cnf	/etc/mysql/mariadb.conf.d/
 
 # Copy the initialization script
-COPY /tools/init.sql /docker-entrypoint-initdb.d/
+COPY /tools/init.sh /usr/local/bin
 
-# Run the initialization script
-RUN chmod +x /docker-entrypoint-initdb.d/init.sql
+# chmod the initialization script
+RUN chmod +x /usr/local/bin/init.sh
 
-CMD ["mysqld_safe"]
+# run the initialization script
+CMD ["/usr/local/bin/init.sh"]

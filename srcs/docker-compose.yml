@@ -1,8 +1,9 @@
 version: '3'
 
 services:
-
   mariadb:
+    # image: mariadb
+    # mem_limit: 512m
     container_name: mariadb
     networks:
       - inception
@@ -11,26 +12,10 @@ services:
       dockerfile: Dockerfile
     env_file: .env
     volumes:
-      - mariadb:/var/lib/mysql
+      - mariadb:/var/lib/mysql  # Corrected volume name
     restart: unless-stopped
     expose:
       - "3306"
-
-  nginx:
-    container_name: nginx
-    volumes:
-      - wordpress:/var/www/wordpress
-    networks:
-      - inception
-    depends_on:
-      - wordpress
-    build:
-      context: requirements/nginx
-      dockerfile: Dockerfile
-    env_file: .env
-    ports:
-      - "443:443"
-    restart: on-failure
 
   wordpress:
     container_name: wordpress
@@ -46,6 +31,22 @@ services:
     expose:
       - "9000"
 
+  nginx:
+    container_name: nginx
+    volumes:
+      - wordpress:/var/www/wordpress  # Corrected volume name
+    networks:
+      - inception
+    depends_on:
+      - wordpress
+    build:
+      context: requirements/nginx
+      dockerfile: Dockerfile
+    env_file: .env
+    ports:
+      - "443:443"
+    restart: on-failure
+
 networks:
   inception:
     driver: bridge
@@ -56,10 +57,10 @@ volumes:
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: './volumes/wordpress'
+      device: '/home/cperron/data/wordpress'
   mariadb:
     driver: local
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: './volumes/mariadb'
+      device: '/home/cperron/data/mariadb'
