@@ -19,6 +19,8 @@ services:
 
   wordpress:
     container_name: wordpress
+    volumes:
+      - wordpress:/var/www/wordpress  # Corrected volume name
     env_file: .env
     networks:
       - inception

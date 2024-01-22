@@ -4,7 +4,7 @@
  */
 
 /** The name of the database for WordPress */
-define('DB_NAME', 'cperron');
+define('DB_NAME', getenv('cperron'));
 
 /** MySQL database username */
 define('DB_USER', 'cperron42');
@@ -13,17 +13,13 @@ define('DB_USER', 'cperron42');
 define('DB_PASSWORD', 'cperron42pass');
 
 /** MySQL hostname */
-define('DB_HOST', 'mariadb');
+define('DB_HOST', 'mariadb:3306');
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');
 
 /** The Database Collate type. Don't change this if in doubt. */
 define('DB_COLLATE', '');
-
-//** Redis cache settings. */
-define('WP_CACHE', true);
-define('WP_CACHE_KEY_SALT', 'cperron.42.ca');
 
 /** Authentication Unique Keys and Salts.
  * You can generate these using the {@link https://api.wordpress.org/secret-key/1.1/salt/ WordPress.org secret-key service}
