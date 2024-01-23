@@ -1,0 +1,15 @@
+# maria db
+SQL_DATABASE=cperron
+SQL_USER=cperron42
+SQL_PASSWORD=cperron42pass
+SQL_ROOT_PASSWORD=cperron42rootpass
+
+# wordpress root
+WORDPRESS_DOMAIN_NAME=inception
+WORDPRESS_ROOT_LOGIN=cperron
+WORDPRESS_ROOT_PASS=Cperron123
+WORDPRESS_ROOT_EMAIL=cperron@hotmail.com
+
+# wordpress user
+WORDPRESS_USER_NAME=usercp2
+WORDPRESS_USER_EMAIL=usercp2@example.com

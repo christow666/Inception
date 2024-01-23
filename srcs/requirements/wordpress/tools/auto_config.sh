@@ -8,8 +8,8 @@ if [ -f /var/www/wordpress/wp-config.php ]; then
 fi
 
 # Sleep for 10 seconds to ensure MariaDB is up and running
-sleep 10
 echo "Waiting for MariaDB to start..."
+sleep 10
 
 # Check if wp-config.php exists
 if [ ! -f /var/www/wordpress/wp-config.php ]; then
@@ -31,17 +31,17 @@ if [ ! -f /var/www/wordpress/wp-config.php ]; then
     /usr/local/bin/wp-cli core install \
         --allow-root \
         --url=http://localhost \
-        --title="Your Site Title" \
-        --admin_user=cperron \
-        --admin_password=Cperron123 \
-        --admin_email=cperron@hotmail.com
+        --title=$WORDPRESS_DOMAIN_NAME \
+        --admin_user=$WORDPRESS_ROOT_LOGIN \
+        --admin_password=$WORDPRESS_ROOT_PASS \
+        --admin_email=$WORDPRESS_ROOT_EMAIL
 
     # Create additional WordPress user
     echo "Creating additional WordPress user..."
     /usr/local/bin/wp-cli user create \
         --allow-root \
-        usercp2 \
-        usercp2@example.com \
+		$WORDPRESS_USER_NAME \
+		$WORDPRESS_USER_EMAIL \
         --role=author
 
     echo "WordPress setup completed successfully!"

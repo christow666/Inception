@@ -3,7 +3,6 @@ FROM debian:buster
 RUN apt update -y \
     && apt upgrade -y \
 	&& apt-get -y install wget
-	# && apt-get -y install vim
 
 RUN apt-get install -y php7.3\
 	php-fpm\
@@ -11,7 +10,7 @@ RUN apt-get install -y php7.3\
 	mariadb-client
 
 # RUN	chown -R root:root /var/www/wordpress
-#user = www-data
+#RUN	chown -R www-data:www-data /var/www/wordpress ???
 
 COPY ./conf/www.conf /etc/php/7.3/fpm/pool.d
 
@@ -27,15 +26,6 @@ WORKDIR /var/www/html
 COPY tools/auto_config.sh /usr/local/bin/
 
 
-# Make the script executable
+# Make the script executable and run
 RUN chmod +x /usr/local/bin/auto_config.sh
 ENTRYPOINT ["/usr/local/bin/auto_config.sh"]
-
-# # Create /run/php directory
-# RUN mkdir -p /run/php
-
-# # Start PHP-FPM
-# RUN echo "starting php"
-# CMD ["/usr/sbin/php-fpm7.3", "-F"]
-
-# CMD ["sh", "-c", "php-fpm7.3 -F"]
