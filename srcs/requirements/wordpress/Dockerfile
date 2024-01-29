@@ -1,8 +1,7 @@
 FROM debian:buster
 
 RUN apt update -y \
-    && apt upgrade -y \
-	&& apt-get -y install wget
+	&& apt install wget -y 
 
 RUN apt-get install -y php7.3\
 	php-fpm\
@@ -15,11 +14,12 @@ RUN apt-get install -y php7.3\
 COPY ./conf/www.conf /etc/php/7.3/fpm/pool.d
 
 # Install WP-CLI
-RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
-    && chmod +x wp-cli.phar \
-    && mv wp-cli.phar /usr/local/bin/wp-cli
+RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+RUN chmod +x wp-cli.phar
+RUN mv wp-cli.phar /usr/local/bin/wp
 
-WORKDIR /var/www/html
+WORKDIR /var/www/wordpress
+
 
 
 # Copy the auto_config.sh script
