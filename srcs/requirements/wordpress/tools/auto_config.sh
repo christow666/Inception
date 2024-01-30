@@ -8,13 +8,16 @@ fi
 
 # Sleep for 15 seconds to ensure MariaDB is up and running
 echo "Waiting for MariaDB to start..."
-sleep 5
+sleep 10
 
 if [ -f ./wp-config.php ]; then
     echo "WordPress is already installed"
 else
-    cd /usr/local/bin/
-	mv wp-cli.phar /usr/local/bin/wp-cli.phar
+
+	wget http://wordpress.org/latest.tar.gz -P /var/www/wordpress
+	tar -xzf latest.tar.gz && rm latest.tar.gz
+	mv wordpress/* .
+	rm -rf wordpress
 
    /usr/local/bin/wp/wp-cli.phar config create \
     --allow-root \

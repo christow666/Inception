@@ -20,7 +20,7 @@ build:
 		chown -R cperron:cperron $(MARIADB_DIR); \
         echo "Directory $(MARIADB_DIR) created."; \
     fi
-	docker-compose -f ./srcs/docker-compose.yml up -d --build
+	docker-compose -f ./srcs/docker-compose.yml up --build
 
 build_nocache:
 	@if [ ! -d $(DATA_DIR) ]; then \
