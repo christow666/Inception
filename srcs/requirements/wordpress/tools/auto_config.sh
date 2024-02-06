@@ -1,14 +1,14 @@
 #!/bin/bash
 
-# Remove existing wp-config.php
-if [ -f /var/www/wordpress/wp-config.php ]; then
-    echo "Removing existing wp-config.php..."
-    rm /var/www/wordpress/wp-config.php
-fi
+# # Remove existing wp-config.php
+# if [ -f /var/www/wordpress/wp-config.php ]; then
+#     echo "Removing existing wp-config.php..."
+#     rm /var/www/wordpress/wp-config.php
+# fi
 
 # Sleep for 15 seconds to ensure MariaDB is up and running
 echo "Waiting for MariaDB to start..."
-sleep 10
+sleep 45
 
 if [ -f ./wp-config.php ]; then
     echo "WordPress is already installed"

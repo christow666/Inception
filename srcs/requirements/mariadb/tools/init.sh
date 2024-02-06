@@ -34,10 +34,10 @@ else
 
     echo "Shutdown MySQL"
     mysqladmin -u root -p"$SQL_ROOT_PASSWORD" shutdown || { echo "ERROR: Unable to shutdown MySQL."; exit 1; }
-fi
 
 	# Set root password
 	mysqladmin -u root password "$SQL_ROOT_PASSWORD"
+fi
 
 echo "Start the MySQL service using mysqld_safe"
 mysqld_safe
